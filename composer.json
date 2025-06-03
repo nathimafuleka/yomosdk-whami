@@ -1,0 +1,39 @@
+{
+    "name": "yonder/yomosdk-whami",
+    "description": "Whami keyword linking and tracking for Yomo7 applications",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nkosinathi Mafuleka",
+            "email": "nkosinathi.mafuleka@yonder.co.za"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.0",
+        "predis/predis": "^1.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.5",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yomo7\\Whami\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yomo7\\Whami\\Providers\\WhamiServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
