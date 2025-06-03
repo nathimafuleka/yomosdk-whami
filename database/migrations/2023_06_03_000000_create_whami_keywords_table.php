@@ -13,26 +13,19 @@ class CreateWhamiKeywordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('whami_keywords', function (Blueprint $table) {
+        Schema::create('keyword_attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('number')->nullable()->comment('User phone number');
-            $table->string('keyword')->comment('The keyword used');
-            $table->string('attribution_code')->nullable()->comment('Attribution code for tracking');
+            $table->string('keyword');
+            $table->string('attribute_code');
             $table->timestamps();
-            
-            // Index for faster lookups
-            $table->index(['number', 'keyword']);
-            $table->index(['keyword', 'attribution_code']);
+
+            $table->index('keyword');
+            $table->index('attribute_code');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('whami_keywords');
+        Schema::dropIfExists('keyword_attributes');
     }
 }
